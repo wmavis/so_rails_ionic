@@ -4,14 +4,24 @@
   </ion-navbar>
 </ion-header>
 
+# https://ionicframework.com/docs/developer-resources/forms/
+# https://ionicframework.com/docs/api/components/datetime/DateTime/
+# https://github.com/bendyworks/ionic-rails-app
+
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <form (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label>Scheduled At</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY HH:mm" pickerFormat="DD/MM/YYYY HH:mm" [(ngModel)]="obj.scheduled_at" name="scheduled_at"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Scheduled At with TZD</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY HH:mmZ" pickerFormat="DD/MM/YYYY HH:mmZ" [(ngModel)]="obj.scheduled_at2" name="scheduled_at2"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>new Date()</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY HH:mmZ" pickerFormat="DD/MM/YYYY HH:mmZ" [(ngModel)]="obj.now" name="now"></ion-datetime>
+    </ion-item>
+    <button ion-button type="submit" block>Submit</button>
+  </form>
 </ion-content>
